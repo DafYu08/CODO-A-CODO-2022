@@ -13,7 +13,7 @@ function openStyle (evt, styleName) {
   }
   
   // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
+  document.getElementById("defaultOpen");
 
 //FORMULARIO
 var inputs = document.getElementsByClassName('formulario_input');
@@ -28,32 +28,9 @@ for (var i=0; i<inputs.length; i++){
 }
 //Hasta acá anda todo joya!!
 
-//Aca solo intento evaluar el nombre y no hace nada
-(function(){
-	//Variables
-	var formulario = document.getElementsById('form')[0],
-		//elementos = formulario.elements,
-		boton = document.getElementById('button');
-
-	var validarNombre = function(e){
-		if (formulario.nombres.value == 0){
-			alert("Completa el campo nombre");
-			e.preventDefault();
-		}
-	};
-
-
-	var validar = function(e){
-		validarNombre(e);
-	};
-
-	formulario.addEventListener("submit", validar);
-}())
-
-//Intento validad nombre, email y teléfono y no hace nada
-const nombres = document.getElementById(nombres)
-const correo = document.getElementById(correo)
-const telefono = document.getElementById(telefono)
+const nombres = document.getElementById("nombre")
+const mail = document.getElementById("correo")
+const telefono = document.getElementById("telefono")
 const form = document.getElementById("form")
 const parrafo = document.getElementById("warnings")
 
@@ -62,13 +39,14 @@ form.addEventListener("submit", e=> {
 	let warnings = ""
 	let entrar = false
 	let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
+	parrafo.innerHTML = ''
 	if(nombres.value.lenght<6){
-		warnings += "El nombre no es valido<br>"
+		warnings += `El nombre no es valido<br>`
 		entrar = true
 	}
-	console.log(regexEmail.test(correo.value))
-	if(!regexEmail.test(correo.value)){
-		warnings+= "El email no es valido<br>"
+	console.log(regexEmail.test(mail.value))
+	if(!regexEmail.test(mail.value)){
+		warnings+= `El email no es valido<br>`
 		entrar = true
 	}
 	//NO SÉ CÓMO HACER LA VALIDACIÓN NUMÉRICA!!. Es decir, que el telefono solo pueda ser de tipo int.
